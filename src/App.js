@@ -16,6 +16,7 @@ class App extends Component {
     };
   }
 
+  //propType is check the table data is special value
   static propTypes = {
     tabledata: PropTypes.array.isRequired,
     getData: PropTypes.func.isRequired,
@@ -37,7 +38,7 @@ class App extends Component {
         phone:this.state.phone
       };
 
-      this.props.addData(newData);
+      this.props.addData(newData); //here is add data function to add new data 
     } else if (this.state.fullName && this.state.email && this.state.phone && this.state.id) {
       const updatedDetails = {
         id: this.state.id,
@@ -51,9 +52,10 @@ class App extends Component {
       alert('Hey Please Fill Form');
     }
 
-    this.clearData();
+    this.clearData(); //when submit data auto clear data
   }
 
+  // this is edit the data to hit on id
   editDetails = (data) => {
     this.setState({
       id: data.id,
@@ -63,6 +65,7 @@ class App extends Component {
     })
   }
 
+  //delete the data with id
   deleteData = (id) => {
     this.clearData();
     if (window.confirm("Are you sure?")) {
@@ -88,6 +91,7 @@ class App extends Component {
     });
   }
 
+  //create cleardata arrow function to fill form data when submit then auto clear 
   clearData = () => {
     this.setState({
       id: 0,
@@ -152,6 +156,7 @@ class App extends Component {
   }
 }
 
+// create mapStateToProps to call table data
 const mapStateToProps = state => ({
   tabledata: state.tabledata
 });

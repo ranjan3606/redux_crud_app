@@ -22,7 +22,7 @@ const reducer = (state = initialstate, action) => {
                 ...state,
                 tabledata: state.tabledata.map(
                     (content, i) => content.id === action.payload.id ? {...content, fullName : action.payload.fullName ,  email : action.payload.email, phone: action.payload.phone }
-                                            : content)
+                    : content)
             };
         case 'DELETE_DATA':
             return {

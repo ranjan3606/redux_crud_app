@@ -1,5 +1,4 @@
 export function getData() {
-    console.log('called');
     return dispatch => {
         return dispatch({
             type: 'GET_DATA'
